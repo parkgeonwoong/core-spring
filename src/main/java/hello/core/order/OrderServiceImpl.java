@@ -5,7 +5,6 @@ package hello.core.order;
  */
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixDiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemoryMemberRepository;
@@ -14,8 +13,12 @@ public class OrderServiceImpl implements OrderService{
 
     // 주문 서비스 -> 회원 저장소, 할인정책 필요함
     private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy  = new FixDiscountPolicy();
+    // ✔ 구체 구현에도 의존중 DIP위반(인터페이스 의존)
+//    private final DiscountPolicy discountPolicy  = new FixDiscountPolicy();
+//    private final DiscountPolicy discountPolicy  = new RateDiscountPolicy();
 
+    // 해결하는법
+    private DiscountPolicy discountPolicy;
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
