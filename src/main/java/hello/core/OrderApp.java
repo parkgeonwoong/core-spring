@@ -32,7 +32,7 @@ public class OrderApp {
         // 메모리 객체에 넣기 = 주문해서 찾아서 쓸수 있으니까
         memberService.join(member);
 
-        Order order = orderService.createOrder(memberId, "itemA", 10000);
+        Order order = orderService.createOrder(memberId, "itemA", 20000);
 
         System.out.println("order = " + order);
         System.out.println("order.calculatePrice = " + order.calculatePrice());
