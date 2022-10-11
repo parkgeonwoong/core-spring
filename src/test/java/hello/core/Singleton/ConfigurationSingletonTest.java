@@ -10,6 +10,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import static org.assertj.core.api.Assertions.*;
 
+/**
+ * @desc : AppConfig에서 new로 객체를 여러번 생성하는데
+ *          Spring 컨테이너가 하나만 생성하는지 확인하기 위한 테스트코드
+ */
+
 public class ConfigurationSingletonTest {
 
     @Test
@@ -29,6 +34,13 @@ public class ConfigurationSingletonTest {
 
         assertThat(memberService.getMemberRepository()).isSameAs(memberRepository);
         assertThat(orderService.getMemberRepository()).isSameAs(memberRepository);
+    }
 
+    @Test
+    void configurationDeep() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+
+        System.out.println("bean.getClass() = " + bean.getClass());
     }
 }
