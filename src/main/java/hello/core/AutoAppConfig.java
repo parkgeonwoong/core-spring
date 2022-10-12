@@ -10,6 +10,7 @@ import org.springframework.context.annotation.FilterType;
 
 @Configuration
 @ComponentScan(
+        // basePackages = "hello.core.member",     // 탐색 위치 지정
         // 스프링 빈을 자동으로 다 끌어올리는 어노테이션
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
