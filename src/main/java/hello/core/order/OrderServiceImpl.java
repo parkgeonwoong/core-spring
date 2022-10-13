@@ -22,8 +22,10 @@ public class OrderServiceImpl implements OrderService{
 
     // 해결하는법
     // 인터페이스에만 의존하는 중
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
+    private  final MemberRepository memberRepository;
+    private  final DiscountPolicy discountPolicy;
+
+
 
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
