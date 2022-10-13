@@ -13,10 +13,10 @@ public class XmlAppContext {
      * 여기는 appConfig.xml로 가져온것
      */
 
-    @Test
-    void XmlAppContext() {
-        ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
-        MemberService memberService = ac.getBean("memberService", MemberService.class);
-        Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
-    }
+//    @Test
+//    void XmlAppContext() {
+//        ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
+//        MemberService memberService = ac.getBean("memberService", MemberService.class);
+//        Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
+//    }
 }

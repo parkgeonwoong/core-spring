@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // final 키워드 보고 생성자를 만들어주는 lombok 라이브러리
+// @RequiredArgsConstructor // final 키워드 보고 생성자를 만들어주는 lombok 라이브러리
 public class OrderServiceImpl implements OrderService{
 
     // 주문 서비스 -> 회원 저장소, 할인정책 필요함
@@ -29,14 +29,14 @@ public class OrderServiceImpl implements OrderService{
 
 
 //    @RequiredArgsConstructor 대신 만들어줌
-//    @Autowired
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-////        System.out.println("Call OrderServiceImpl");
-////        System.out.println("memberRepository = " + memberRepository);
-////        System.out.println("discountPolicy = " + discountPolicy);
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
+//        System.out.println("Call OrderServiceImpl");
+//        System.out.println("memberRepository = " + memberRepository);
+//        System.out.println("discountPolicy = " + discountPolicy);
+        this.memberRepository = memberRepository;
+        this.discountPolicy = rateDiscountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
