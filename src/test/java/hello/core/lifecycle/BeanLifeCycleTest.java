@@ -18,15 +18,13 @@ public class BeanLifeCycleTest {
         ConfigurableApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
         NetworkClient client = ac.getBean(NetworkClient.class);
 
-//        client.setUrl("http://Test.dev");
-//        client.connect();
-
         ac.close();
     }
 
     @Configuration
     static class LifeCycleConfig {
 
+       // @Bean(initMethod = "init", destroyMethod = "close")
         @Bean
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient();
